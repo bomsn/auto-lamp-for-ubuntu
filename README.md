@@ -9,7 +9,7 @@ Simple LAMP stack installation script for Ubuntu. The script also automates the 
 
 - Copy and pase the following 
         
-      curl -s https://raw.githubusercontent.com/bomsn/ubuntu_auto_lamp_script/main/ubuntu_auto_lamp_setup.sh | bash
+      curl -s https://raw.githubusercontent.com/bomsn/auto-lamp-for-ubuntu/main/ubuntu_auto_lamp_setup.sh | bash
 
 You will be asked to enter website URL(s) and a few other configuration questions.
 
