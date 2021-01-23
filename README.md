@@ -4,9 +4,13 @@ Simple LAMP stack installation script for Ubuntu. The script also automates the 
 ## Usage
 
 - Connect to your server via SSH
-`ssh root@server.ip.address`
+
+    ssh root@server.ip.address
+
 - Copy and pase the following 
-`curl -s https://raw.githubusercontent.com/bomsn/ubuntu_auto_lamp_script/main/ubuntu_auto_lamp_setup.sh | bash`
+
+    curl -s https://raw.githubusercontent.com/bomsn/ubuntu_auto_lamp_script/main/ubuntu_auto_lamp_setup.sh | bash
+
 You will be asked to website URL(s) and a few other configuration questions.
 
 That's it, after the script is done, open your newly created website(s) in the browser to test if all works. If you have generated an SSL certificate for your website(s), make sure to test over HTTPS as well. 
