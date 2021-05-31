@@ -241,7 +241,7 @@ if [[ $generate_cert = 'y' ]]; then
   (y/n): " generate_cert_for_site < /dev/tty
         if [[ $generate_cert_for_site = 'y' ]]; then
             joined_domains+="$deli$site"
-            deli=" -d"
+            deli=" -d "
         fi
     done
     # Remove the temp file
@@ -249,7 +249,6 @@ if [[ $generate_cert = 'y' ]]; then
 
     echo
     echo ">>> Generate SSL certifcate(s) for the selected domain(s):"
-    echo "$joined_domains"
     echo
     # Make sure Certbot will run non-interactively
     # Allow it to enable the site and SSL modules for us
