@@ -234,14 +234,13 @@ if [[ $generate_cert = 'y' ]]; then
     existing_domains=($(awk '$1 ~ /^(ServerName)/ { for (i=2; i<=NF; i++) print $i }' temp-vhost.txt))
 
     # Convert the array to the format we can use to use the domains on certbot command
-    deli=""
+    deli="-d"
     joined_domains=""
     for site in "${existing_domains[@]}"; do
         read -p "- Would you like to configure SSL for $site
   (y/n): " generate_cert_for_site < /dev/tty
         if [[ $generate_cert_for_site = 'y' ]]; then
-            joined_domains+="$deli$site"
-            deli=" -d "
+            joined_domains+=" $deli $site"
         fi
     done
     # Remove the temp file
@@ -252,7 +251,7 @@ if [[ $generate_cert = 'y' ]]; then
     echo
     # Make sure Certbot will run non-interactively
     # Allow it to enable the site and SSL modules for us
-    certbot --apache -n -d "$joined_domains" --redirect --keep-until-expiring --expand --apache-handle-modules "True" --apache-handle-sites "True"
+    certbot --apache -n "$joined_domains" --redirect --keep-until-expiring --expand --apache-handle-modules "True" --apache-handle-sites "True"
 
     # Run cron job for auto-renewal ( if it doesn't already exist )
     if ! crontab -l &> /dev/null | grep -q "certbot renew"; then
