@@ -249,6 +249,7 @@ if [[ $generate_cert = 'y' ]]; then
 
     echo
     echo ">>> Generate SSL certifcate(s) for the selected domain(s):"
+    echo "$joined_domains"
     echo
     # Make sure Certbot will run non-interactively
     # Allow it to enable the site and SSL modules for us
