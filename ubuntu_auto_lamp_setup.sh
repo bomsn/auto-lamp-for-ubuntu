@@ -241,7 +241,7 @@ if [[ $generate_cert = 'y' ]]; then
   (y/n): " generate_cert_for_site < /dev/tty
         if [[ $generate_cert_for_site = 'y' ]]; then
             joined_domains+="$deli$site"
-            deli=","
+            deli=" -d"
         fi
     done
     # Remove the temp file
