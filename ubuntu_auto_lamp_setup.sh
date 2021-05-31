@@ -240,7 +240,8 @@ if [[ $generate_cert = 'y' ]]; then
         read -p "- Would you like to configure SSL for $site
   (y/n): " generate_cert_for_site < /dev/tty
         if [[ $generate_cert_for_site = 'y' ]]; then
-            joined_domains+=" $deli $site"
+            joined_domains+="$deli $site"
+            deli=" -d"
         fi
     done
     # Remove the temp file
